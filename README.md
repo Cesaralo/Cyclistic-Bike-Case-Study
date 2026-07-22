@@ -1,9 +1,13 @@
 # Cyclistic-Bike-Case-Study
-## Ask & Prepare Phases
+# Ask & Prepare Phases
 Lily Moreno, our marketing director and manager, as well as the Cyclistic executive team, have assigned us to figure out how annual members and casual riders behave differently when using our services so that we can create a marketing strategy that appeals to casual riders' needs.
-The data sources that we will be using span the 12 months prior to the creation of this case study and have been saved in local storage and in Google Drive. This data includes all customer bike usage, which is sufficient for our purposes; furthermore, the data satisfies the ROCCC framework since it has been provided directly by Motivate International Inc., located in Chicago, from [divvy_tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html)
-## Process Phase
-Given the large volume of data being used, the best option is to work with Google BigQuery, which allows us to process tons of data faster than traditional spreadsheet software. Tableau will be used for visualization and analysis as well. All data being used was successfully validated, ensuring identical primary keys across each CSV file.
+The data sources that we will be using span the 12 months prior to the creation of this case study and have been saved in local storage and in Google Drive. This data includes all customer bike usage, which is sufficient for our purposes; furthermore, the data satisfies the ROCCC framework since it has been provided directly by Motivate International Inc., located in Chicago, from [divvy_tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html) under this [license](https://divvybikes.com/data-license-agreement)
+# Process Phase
+Given the large volume of data being used, the best option is to work with Google BigQuery, which allows us to process tons of data faster than traditional spreadsheet software. Tableau will be used for visualization and analysis as well. All data being used was successfully validated, ensuring identical colums, which will be listed below:
+ride_id, rideable_type, started_at, ended_at, start_station_name, start_lng, end_lat, end_lng_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual
+## Merging the data
+I have decided to use Union All instead of Join since the first one arranges the tables vertically, while Join does it horizontally. This was the SQL Query:
+After that, w
 A round count check and a uniqueness check were conducted to ensure the dataset was free from errors. All 12 monthly files were merged using a WITH ... AS... clause, which was then paired with WHERE...IN to check for duplicate ride_ids across the relevant columns. This process revealed 35 duplicates, which appeared to arise from a month-end overlap.
 COUNTIF was used to look for rows lacking starting and ending coordinate data. A total of 5,890 rows lacking ending coordinates were found, and starting coordinates were similarly verified for completeness.
 Validation of data integrity was performed using COUNT(*), TIMESTAMP_DIFF, and WHERE filters to identify logical inconsistencies. We specifically focused on trips with negative durations or sessions lasting less than one minute, finding:
