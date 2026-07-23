@@ -4,7 +4,7 @@ Lily Moreno, our marketing director and manager, as well as the Cyclistic execut
 The data sources that we will be using span the 12 months prior to the creation of this case study and have been saved in local storage and in Google Drive. This data includes all customer bike usage, which is sufficient for our purposes; furthermore, the data satisfies the ROCCC framework since it has been provided directly by Motivate International Inc., located in Chicago, from [divvy_tripdata](https://divvy-tripdata.s3.amazonaws.com/index.html) under this [license](https://divvybikes.com/data-license-agreement)
 # Process Phase
 Given the large volume of data being used, the best option is to work with Google BigQuery, which allows us to process tons of data faster than traditional spreadsheet software. Tableau will be used for visualization and analysis as well. All data being used was successfully validated, ensuring the colmuns to be identical and that their types were well formatted, which will be listed below:
-<img width="1177" height="1000" alt="image" src="https://github.com/user-attachments/assets/307eeecb-8641-4a1e-9617-f7de70c58429" />
+<img width="1177" height="500" alt="image" src="https://github.com/user-attachments/assets/307eeecb-8641-4a1e-9617-f7de70c58429" />
 
 ## Merging the data
 I have decided to use Union All instead of Join since the first one arranges the tables vertically, while Join does it horizontally.
