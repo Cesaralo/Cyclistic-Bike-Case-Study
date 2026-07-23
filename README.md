@@ -7,10 +7,8 @@ Given the large volume of data being used, the best option is to work with Googl
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/307eeecb-8641-4a1e-9617-f7de70c58429" />
 
 ## Merging the data
-I have decided to use Union All instead of Join since the first one arranges the tables vertically, while Join does it horizontally.
-
-SQL Query: [Data Combining](./01_combining_bikes_data.sql)
-
+I have decided to use Union All instead of Join since the first one arranges the tables vertically, while Join does it horizontally.<br>
+SQL Query: [Data Combining](./01_combining_bikes_data.sql)<br>
 Once the data was merged altogether, I decided to execute the following code to look for duplicate entries, obtaining 35 duplicates, as shown below:<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/f548c948-39cc-4f66-b94f-42962fb3b005" />
 
 A round count check and a uniqueness check were conducted to ensure the dataset was free from errors... All 12 monthly files were merged using a WITH ... AS... clause, which was then paired with WHERE...IN to check for duplicate ride_ids across the relevant columns. This process revealed 35 duplicates, which appeared to arise from a month-end overlap.
